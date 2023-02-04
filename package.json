@@ -1,0 +1,9 @@
+{
+  "name": "help-me",
+  "version": "1.0.0",
+  "description": "Chat GPT based tool for code related queries",
+  "main": "index.js",
+  "repository": "https://github.com/JingleBaba/helpMe.git",
+  "author": "jingleBaba",
+  "license": "MIT"
+}
