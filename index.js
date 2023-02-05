@@ -1,6 +1,7 @@
 const { App } = require('@slack/bolt');
 require('dotenv').config();
 const getResult = require('./modules/codex');
+var http = require('http');
 
 const app = new App({
   token: process.env.BOT_TOKEN, 
@@ -8,9 +9,17 @@ const app = new App({
   socketMode: true,
 });
 
+
+//create a server object:
+http.createServer((req, res) => {
+  res.write('Welcome to CodeBaba')
+  res.end(); 
+}).listen(8080);
+
 (async () => {
-  await app.start();
-  console.log('⚡️ Bolt app started');
+  // Start your app
+  await app.start(process.env.PORT || 3000);
+  console.log('⚡️ Bolt app is running!');
 })();
 
 // subscribe to 'app_mention' event in your App config
