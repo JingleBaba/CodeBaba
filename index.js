@@ -9,21 +9,19 @@ const boltAppConstructor = Bolt.App;
 
 const boltReceiver = new ExpressReceiver({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
-  socketMode: true,
   appToken: process.env.APP_ACCESS_SECRET,
-  endpoints:'/'
 })
 const boltApp = new boltAppConstructor({token: process.env.BOT_ACCESS_KEY, receiver: boltReceiver});
 // Initializes your app with your bot token and signing secret
 
-boltApp.message('CodeBaba', async ({ message, say }) => {
-  console.log("running");
+boltApp.event('app_mention', async ({ event, context, client, say }) => {
+  console.log("client");
   // say() sends a message to the channel where the event was triggered
-  await say(`Hey there <@${message.user}>!`);
+  await say(`hello world`);
 });
 
 app.listen(process.env.PORT, () => {
-  console.log("hello world");
+  console.log(`app running on port ${process.env.PORT}`);
 })
 
 app.get('/', (req,res) => {
