@@ -15,7 +15,7 @@ const boltApp = new boltAppConstructor({token: process.env.BOT_ACCESS_KEY, recei
 // Initializes your app with your bot token and signing secret
 
 boltApp.event('app_mention', async ({ event, context, client, say }) => {
-  console.log("client");
+  console.log("client", client);
   // say() sends a message to the channel where the event was triggered
   await say(`hello world`);
 });
