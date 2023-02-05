@@ -1,7 +1,6 @@
 const { App } = require('@slack/bolt');
 require('dotenv').config();
 const getResult = require('./modules/codex');
-var http = require('http');
 
 const app = new App({
   token: process.env.BOT_TOKEN, 
@@ -24,8 +23,3 @@ app.event('message', async ({ event,say }) => {
     console.error(error);
   }
 });
-
-
-
-module.exports =  (req,res) => {
-	res.send("CodeBaba")};
