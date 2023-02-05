@@ -36,7 +36,7 @@ async function publishMessage(id, text) {
   }
 }
 
-boltApp.event('message.im', async ({ event,say }) => {
+boltApp.event('message', async ({ event,say }) => {
   console.log("running");
   console.log("userID", event.user);
   // say() sends a message to the channel where the event was triggered
