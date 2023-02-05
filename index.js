@@ -10,16 +10,11 @@ const app = new App({
 });
 
 
-//create a server object:
-http.createServer((req, res) => {
-  res.write('Welcome to CodeBaba')
-  res.end(); 
-  (async () => {
-    // Start your app
-    await app.start(process.env.PORT || 3000);
-    console.log('⚡️ Bolt app is running!');
-  })();
-}).listen(8080);
+(async () => {
+  // Start your app
+  await app.start();
+  console.log('⚡️ Bolt app is running!');
+})();
 
 app.event('message', async ({ event,say }) => {
   try {
@@ -31,3 +26,5 @@ app.event('message', async ({ event,say }) => {
     console.error(error);
   }
 });
+
+module.exports = app;
