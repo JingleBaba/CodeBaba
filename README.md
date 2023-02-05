@@ -1,2 +1,2 @@
-# helpMe
+# CodeBaba
 ChatGpt based slack bot
