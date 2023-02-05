@@ -28,7 +28,7 @@ app.event('message', async ({ event,say }) => {
 async function handler(event, context) {
 	return {
 	  statusCode: 200,
-	  body: JSON.stringify({ message: "CodeBaba" })
+	  body: ({ message: "CodeBaba" })
 	}
 }
 
