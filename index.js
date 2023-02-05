@@ -27,7 +27,7 @@ app.listen(process.env.PORT, () => {
 })
 
 app.get('/', (req,res) => {
-  res.send("Welcome to codebabas");
+  res.send("Welcome to CodeBaba");
 })
 
 app.use('/slack/events', boltApp.receiver.router);
