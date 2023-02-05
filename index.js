@@ -14,7 +14,6 @@ const boltReceiver = new ExpressReceiver({
   endpoints:'/'
 })
 const boltApp = new boltAppConstructor({token: process.env.BOT_ACCESS_KEY, receiver: boltReceiver});
-console.log(boltApp);
 // Initializes your app with your bot token and signing secret
 
 boltApp.message('CodeBaba', async ({ message, say }) => {
@@ -27,8 +26,8 @@ app.listen(process.env.PORT, () => {
   console.log("hello world");
 })
 
-app.use('/', (req,res) => {
-  res.send("Welcome to codebaba");
+app.get('/', (req,res) => {
+  res.send("Welcome to codebabas");
 })
 
 app.use('/slack/events', boltApp.receiver.router);
