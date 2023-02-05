@@ -19,7 +19,6 @@ const boltApp = new boltAppConstructor({token: process.env.BOT_ACCESS_KEY, recei
 
 boltApp.event('message', ({ event,say }) => {
   say("Processing your request this might take a min or 2");
-  say(event.text);
 });
 
 app.listen(process.env.PORT, () => {
