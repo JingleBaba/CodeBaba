@@ -11,9 +11,7 @@ const app = new App({
 
 
 (async () => {
-  // Start your app
   await app.start();
-  console.log('⚡️ Bolt app is running!');
 })();
 
 app.event('message', async ({ event,say }) => {
@@ -27,4 +25,14 @@ app.event('message', async ({ event,say }) => {
   }
 });
 
-module.exports = app;
+async function handler(event, context) {
+	return {
+	  statusCode: 200,
+	  body: JSON.stringify({ message: "CodeBaba" })
+	}
+}
+
+module.exports =  async (req,res) => {
+	const hand = await handler()
+	res.json(hand)
+};
