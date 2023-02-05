@@ -9,7 +9,6 @@ const boltAppConstructor = Bolt.App;
 
 const boltReceiver = new ExpressReceiver({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
-  socketMode: true,
   appToken: process.env.APP_ACCESS_SECRET,
   endpoints:'/'
 })
