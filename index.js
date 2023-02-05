@@ -39,8 +39,8 @@ async function publishMessage(id, text) {
 boltApp.event('message', async ({ event,say }) => {
   console.log("running");
   console.log("userID", event.user);
-  // say() sends a message to the channel where the event was triggered
-    await publishMessage(event.user, 'hello test')
+  say("Processing your request this might take a min or 2");
+  await publishMessage(event.user, 'hello test')
 });
 
 app.listen(process.env.PORT, () => {
