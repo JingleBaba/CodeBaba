@@ -14,16 +14,13 @@ const app = new App({
 http.createServer((req, res) => {
   res.write('Welcome to CodeBaba')
   res.end(); 
+  (async () => {
+    // Start your app
+    await app.start(process.env.PORT || 3000);
+    console.log('⚡️ Bolt app is running!');
+  })();
 }).listen(8080);
 
-(async () => {
-  // Start your app
-  await app.start(process.env.PORT || 3000);
-  console.log('⚡️ Bolt app is running!');
-})();
-
-// subscribe to 'app_mention' event in your App config
-// need app_mentions:read and chat:write scopes
 app.event('message', async ({ event,say }) => {
   try {
     await say("please wait while we fetch the result...");
