@@ -7,7 +7,9 @@
   "author": "jingleBaba",
   "license": "MIT",
   "devDependencies": {
-    "express": "^4.18.2"
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2"
   },
   "dependencies": {
     "@slack/bolt": "^3.12.2",
@@ -17,6 +19,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index"
+    "dev": "node --watch index",
+    "build":  "babel index.js -d dist"
   }
 }
