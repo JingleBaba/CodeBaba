@@ -6,21 +6,14 @@
   "repository": "https://github.com/JingleBaba/helpMe.git",
   "author": "jingleBaba",
   "license": "MIT",
-  "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2"
-  },
   "dependencies": {
     "@slack/bolt": "^3.12.2",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "slackbots": "^1.3.0"
+    "express": "^4.18.2"
   },
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index",
-    "build": "babel index.js -d dist"
+    "dev": "node --watch index"
   }
 }
