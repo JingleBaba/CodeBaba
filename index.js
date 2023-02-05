@@ -25,14 +25,7 @@ app.event('message', async ({ event,say }) => {
   }
 });
 
-async function handler(event, context) {
-	return {
-	  statusCode: 200,
-	  body: ({ message: "CodeBaba" })
-	}
-}
 
-module.exports =  async (req,res) => {
-	const hand = await handler()
-	res.json(hand)
-};
+
+module.exports =  (req,res) => {
+	res.send("CodeBaba")};
