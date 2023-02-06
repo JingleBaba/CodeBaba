@@ -10,9 +10,6 @@ const app = new App({
 
 ( async () => {
   await app.start(3000);
-  setTimeout(new Promise((resolve,reject)=>{
-      resolve("done");
-  }) ,0)
 })();
 
 module.exports = function handler(req, res) {
