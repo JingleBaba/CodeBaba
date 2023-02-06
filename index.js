@@ -4,14 +4,8 @@ const getResult = require('./modules/codex');
 
 const app = new App({
   token: process.env.BOT_TOKEN, 
-  appToken: process.env.APP_ACCESS_SECRET,
-  socketMode: true,
+  signingSecret: process.env.SIGNING_SECRET,
 });
-
-
-(async () => {
-  await app.start();
-})();
 
 app.event('message', async ({ event,say }) => {
   try {
@@ -23,3 +17,11 @@ app.event('message', async ({ event,say }) => {
     console.error(error);
   }
 });
+
+(async () => {
+  // Start your app
+  await app.start(process.env.PORT || 3000);
+  console.log('⚡️ Bolt app is running!');
+})();
+
+
