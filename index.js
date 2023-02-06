@@ -5,8 +5,8 @@ const getResult = require('./modules/codex');
 const app = new App({
   token: process.env.BOT_TOKEN, 
   signingSecret: process.env.SIGNING_SECRET,
-  socketMode: true,
-  appToken: process.env.APP_ACCESS_SECRET
+  // socketMode: true, only to be used on socketed method
+  // appToken: process.env.APP_ACCESS_SECRET
 });
 
 app.event('message', async ({ event,say }) => {
