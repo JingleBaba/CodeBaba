@@ -15,6 +15,12 @@ const init = async () => {
   }) ,0)
 }
 
+module.exports =  async function handler(req, res) {
+  await init();
+  const { name = 'World' } = req.query;
+  return res.send(`Hello ${name}!`);
+}
+
 
 app.event('message', async ({ event,say }) => {
   try {
