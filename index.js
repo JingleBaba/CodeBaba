@@ -1,17 +1,17 @@
-const { App } = require('@slack/bolt');
+const { App,ExpressReceiver  } = require('@slack/bolt');
 require('dotenv').config();
 const getResult = require('./modules/codex');
 
+
+const expressReceiver = new ExpressReceiver({ 
+  signingSecret: process.env.SIGNING_SECRET
+})
+
 const app = new App({
   token: process.env.BOT_TOKEN, 
-  appToken: process.env.APP_ACCESS_SECRET,
-  socketMode: true,
+  receiver: expressReceiver
 });
 
-
-(async () => {
-  await app.start();
-})();
 
 app.event('message', async ({ event,say }) => {
   try {
@@ -23,3 +23,6 @@ app.event('message', async ({ event,say }) => {
     console.error(error);
   }
 });
+
+
+module.exports.expressApp = expressReceiver.app;
