@@ -7,15 +7,20 @@ const app = new App({
   signingSecret: process.env.SIGNING_SECRET,
 });
 
-app.event('message', async ({ event,say }) => {
-  try {
-    await say("please wait while we fetch the result...");
-    const data =  await getResult(event.text);
-    await say(data);
-  }
-  catch (error) {
-    console.error(error);
-  }
+// app.event('message', async ({ event,say }) => {
+//   try {
+//     await say("please wait while we fetch the result...");
+//     const data =  await getResult(event.text);
+//     await say(data);
+//   }
+//   catch (error) {
+//     console.error(error);
+//   }
+// });
+
+app.message('hello', async ({ message, say }) => {
+  // say() sends a message to the channel where the event was triggered
+  await say(`Hey there <@${message.user}>!`);
 });
 
 (async () => {
