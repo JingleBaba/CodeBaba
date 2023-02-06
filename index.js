@@ -1,6 +1,7 @@
 const { App,ExpressReceiver  } = require('@slack/bolt');
 require('dotenv').config();
 const getResult = require('./modules/codex');
+const express = require('express')();
 
 
 const expressReceiver = new ExpressReceiver({ 
@@ -24,5 +25,9 @@ app.event('message', async ({ event,say }) => {
   }
 });
 
+express.get('/',(req,res) => {
+  res.send("Welcome to CodeBaba");
+})
 
-module.exports.expressApp = expressReceiver.router;
+
+express.use('/slack/events', expressReceiver.router);
