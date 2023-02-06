@@ -8,10 +8,13 @@ const app = new App({
   socketMode: true,
 });
 
+const init = async () => {
+  await app.start(3000);
+  setTimeout(new Promise((resolve,reject)=>{
+      resolve(done);
+  }) ,0)
+}
 
-(async () => {
-  await app.start();
-})();
 
 app.event('message', async ({ event,say }) => {
   try {
@@ -23,3 +26,5 @@ app.event('message', async ({ event,say }) => {
     console.error(error);
   }
 });
+
+module.exports = init;
