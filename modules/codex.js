@@ -10,7 +10,7 @@ const getResult = async(text) => {
     console.log(text);
     console.log("getresult function running");
     const {data} =  await openai.createCompletion({
-        model: "code-davinci-002",
+        model: "text-davinci-002",
         prompt: text,
         temperature: 0,
         max_tokens: 260,
