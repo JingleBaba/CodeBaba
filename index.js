@@ -1,19 +1,10 @@
 const { App,ExpressReceiver  } = require('@slack/bolt');
 require('dotenv').config();
 const getResult = require('./modules/codex');
-const express = require('express');
-
-const expressApp = express();
-
-
-const expressReceiver = new ExpressReceiver({ 
-  signingSecret: process.env.SIGNING_SECRET,
-  endpoints:'/'
-})
 
 const app = new App({
   token: process.env.BOT_TOKEN, 
-  receiver: expressReceiver
+  signingSecret: process.env.SIGNING_SECRET,
 });
 
 app.event('message', async ({ event,say }) => {
@@ -27,13 +18,16 @@ app.event('message', async ({ event,say }) => {
   }
 });
 
-expressApp.listen(3000, () => {
-  console.log("Server initiated");
-})
+(async () => {
+  // Start your app
+  await app.start(process.env.PORT || 3000);
 
-expressApp.get('/',(req,res) => {
-  res.send("Welcome to CodeBaba");
-})
+  console.log('⚡️ Bolt app is running!');
+})();
 
 
-expressApp.use('/slack/events', app.receiver.router);
+module.exports = function handler(req, res) {
+  const { name = 'World' } = req.query;
+  return res.send(`Hello ${name}!`);
+}
+
