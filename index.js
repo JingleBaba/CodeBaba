@@ -30,5 +30,3 @@ app.event('message', async ({ event,say }) => {
     console.error(error);
   }
 });
-
-module.exports = init;
