@@ -8,19 +8,17 @@ const app = new App({
   socketMode: true,
 });
 
-const init = async () => {
+( async () => {
   await app.start(3000);
   setTimeout(new Promise((resolve,reject)=>{
       resolve("done");
   }) ,0)
-}
+})();
 
-module.exports =  async function handler(req, res) {
-  await init();
+module.exports = function handler(req, res) {
   const { name = 'World' } = req.query;
   return res.send(`Hello ${name}!`);
 }
-
 
 app.event('message', async ({ event,say }) => {
   try {
