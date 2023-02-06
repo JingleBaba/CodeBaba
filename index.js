@@ -11,7 +11,7 @@ const app = new App({
 const init = async () => {
   await app.start(3000);
   setTimeout(new Promise((resolve,reject)=>{
-      resolve(done);
+      resolve("done");
   }) ,0)
 }
 
