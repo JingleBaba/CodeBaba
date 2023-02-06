@@ -25,4 +25,4 @@ app.event('message', async ({ event,say }) => {
 });
 
 
-module.exports.expressApp = expressReceiver.app;
+module.exports.expressApp = expressReceiver.router;
